@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <div id="wrap">
         <!-- 설문조사 step2 -->
+        <form action="{{ url_for('music') }}" method="GET">
         <div class="survey-wrap step3">
-            <h2 class="tit">"나의 <span class="emotion"><span class="point-color">우울</span>한</span> 감정은?!"</h2>
-            <div class="select-btn">
-                <a href="{{ url_for('music')}}" class="btn">결별</a>
-                <a href="{{ url_for('music')}}" class="btn">실패</a>
-                <a href="{{ url_for('music')}}" class="btn">권고사직</a>
-                <a href="{{ url_for('music')}}" class="btn">비도 오고 그래서...?</a>
-                <a href="{{ url_for('music')}}" class="btn">무기력</a>
-                <a href="{{ url_for('music')}}" class="btn">파산</a>
-                <a href="{{ url_for('music')}}" class="btn">몸무게 상승</a>
-                <a href="{{ url_for('music')}}" class="btn">지인 또는 반려견의 죽음</a>
-            </div>
+
+                <h2 class="tit">
+                    {% if emotion == "슬픔" %}
+                    “나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>한 감정은?!”
+                        {% elif emotion == '행복' %}
+                        “나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>이 가득한 감정은?!"
+                            {% elif emotion == '분노' %}
+                            “나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>이 드는 감정은?!”
+                                {% endif %}
+                </h2>
+
+                <div class="select-btn">
+                    {% for option in options %}
+                    <button type="submit" class="btn" name="feeling" value="{{ option }}">{{ option }}</button>
+                    {% endfor %}
+                </div>
+            </form>
+            <!-- <h2 class="tit">
+                    {% if emotion == "슬픔" %}
+                    "나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>한 감정은?!"
+                        {% elif emotion == "행복" %}
+                        "나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>이 가득한 감정은?!"
+                            {% elif emotion == "분노"%}
+                            "나의 <span class="emotion"><span class="point-color">{{ feeling }}</span>이 드는 감정은?!"
+                                {% endif %}
+                </h2>
+
+                <div class="select-btn">
+                    {% for option in options %}
+                    <a href="{{ url_for('music') }}" class="btn">{{ option }}</a>
+                    {% endfor %}
+                </div> -->
         </div>
+
         <!-- 푸터영역 -->
         <div class="footer">
-            <div class="logo"><p>감정</p><p><span class="point-color">딴</span>따라</p></div>
+            <div class="logo">
+                <p>감정</p>
+                <p><span class="point-color">딴</span>따라</p>
+            </div>
             <p class="copy">music that you listen to according to your feelings</p>
         </div>
     </div>
 </body>
+
 </html>
