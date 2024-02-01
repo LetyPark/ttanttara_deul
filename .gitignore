@@ -7,3 +7,10 @@
 # HTML files, app.py, and templates are exceptions
 !*.html
 !app.py
+!templates
+
+# Ignore specific directories and files
+/static/
+.vscode/
+.hintc
+database.db
