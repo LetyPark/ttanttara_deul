@@ -7,4 +7,3 @@
 # HTML files, app.py, and templates are exceptions
 !*.html
 !app.py
-/templates/
