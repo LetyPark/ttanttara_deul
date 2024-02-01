@@ -1,1 +1,0 @@
-# ttanttara_deul
