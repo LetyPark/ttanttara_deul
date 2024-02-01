@@ -4,10 +4,7 @@
 # .gitignore file itself is an exception
 !.gitignore
 
-# HTML files and app.py are exceptions
+# HTML files, app.py, and templates are exceptions
 !*.html
-!templates
 !app.py
-
-# Ignore static files
-/static/
+/templates/
