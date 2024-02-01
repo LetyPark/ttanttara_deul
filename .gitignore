@@ -1,0 +1,9 @@
+# 모든 파일 무시
+*
+
+# .gitignore 파일은 예외로 둠
+!.gitignore
+
+# HTML 파일과 app.py는 예외로 둠
+!*.html
+!app.py
