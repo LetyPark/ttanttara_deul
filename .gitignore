@@ -1,9 +1,12 @@
-# 모든 파일 무시
+# Ignore all files
 *
 
-# .gitignore 파일은 예외로 둠
+# .gitignore file itself is an exception
 !.gitignore
 
-# HTML 파일과 app.py는 예외로 둠
+# HTML files and app.py are exceptions
 !*.html
 !app.py
+
+# Ignore static files
+/static/
